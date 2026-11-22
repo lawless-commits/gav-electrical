@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GAV Electrical (Pty) Ltd | Safe, Compliant Electrical & Backup Power – Gauteng</title>
+<meta name="description" content="GAV Electrical (Pty) Ltd: SANS 10142-1 aligned electrical installations, fault-finding, DB upgrades, CoC inspections and backup power / solar integration for homes, businesses and light industry across Gauteng.">
+<meta name="theme-color" content="#0F172A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 3 57 17.5v29L32 61 7 46.5v-29Z' fill='%230F172A' stroke='%23F59E0B' stroke-width='4'/%3E%3Cpath d='M36 12 20 36h11l-4 16 17-25H33Z' fill='%23F59E0B'/%3E%3C/svg%3E">
+<style>
+/* ============================================================
+   GAV Electrical – demo prototype styles
+   ============================================================ */
+:root{
+  --ink:#0F172A; --ink-2:#1E293B; --ink-3:#334155; --muted:#475569;
+  --line:#E2E8F0; --surface:#F8FAFC; --white:#fff;
+  --cobalt:#0369A1; --cobalt-bright:#0284C7; --cobalt-soft:#E0F2FE;
+  --emerald:#047857; --emerald-bright:#059669; --emerald-soft:#D1FAE5;
+  --amber:#D97706; --amber-bright:#F59E0B; --amber-soft:#FEF3C7;
+  --danger:#B91C1C; --danger-soft:#FEE2E2;
+  --radius:14px; --radius-sm:9px;
+  --shadow:0 1px 2px rgba(15,23,42,.06),0 8px 24px rgba(15,23,42,.08);
+  --max:1180px; --nav-h:72px;
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 12px)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;font-family:var(--font);color:var(--ink);background:var(--surface);line-height:1.6;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+h1,h2,h3,h4{line-height:1.2;margin:0 0 .5em;letter-spacing:-.01em}
+h1{font-size:clamp(2rem,4.6vw,3.35rem);font-weight:800}
+h2{font-size:clamp(1.6rem,3.2vw,2.35rem);font-weight:800}
+h3{font-size:1.2rem}
+p{margin:0 0 1em}
+a{color:var(--cobalt)}
+ul{padding-left:1.15em}
+:focus-visible{outline:3px solid var(--amber-bright);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+.section{padding:84px 0}
+.section--alt{background:var(--white);border-block:1px solid var(--line)}
+.section--dark{background:var(--ink);color:#E2E8F0}
+.section--dark h2,.section--dark h3{color:#fff}
+.eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#B45309;margin-bottom:.6rem}
+.section--dark .eyebrow,.hero .eyebrow{color:var(--amber-bright)}
+.lead{font-size:1.1rem;color:var(--muted);max-width:720px}
+.section--dark .lead{color:#CBD5E1}
+.section-head{margin-bottom:40px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--amber-bright);color:var(--ink);padding:10px 16px;border-radius:8px;z-index:200;font-weight:700}
+.skip:focus{left:12px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.demo-tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:var(--amber-soft);color:#92400E;padding:2px 8px;border-radius:999px;vertical-align:middle}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;font:inherit;font-weight:700;font-size:1rem;padding:.8em 1.35em;border-radius:10px;border:2px solid transparent;cursor:pointer;text-decoration:none;transition:transform .15s,background .15s,border-color .15s,color .15s;line-height:1.2}
+.btn:hover{transform:translateY(-1px)}
+.btn--primary{background:var(--amber-bright);color:var(--ink)}
+.btn--primary:hover{background:#FBBF24}
+.btn--blue{background:var(--cobalt);color:#fff}
+.btn--blue:hover{background:#075985}
+.btn--ghost{background:transparent;border-color:currentColor;color:inherit}
+.btn--ghost:hover{background:rgba(255,255,255,.08)}
+.btn--light{background:var(--white);color:var(--ink);border-color:var(--line)}
+.btn--light:hover{border-color:var(--ink-3)}
+.btn--sm{font-size:.9rem;padding:.6em 1em}
+
+/* ---------- Nav ---------- */
+.nav{position:sticky;top:0;z-index:100;background:rgba(15,23,42,.96);backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav__inner{display:flex;align-items:center;justify-content:space-between;gap:16px;height:var(--nav-h)}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}
+.brand svg{width:42px;height:42px;flex:none}
+.brand__name{font-weight:800;font-size:1.15rem;letter-spacing:.02em;line-height:1}
+.brand__name span{display:block;font-size:.68rem;font-weight:600;letter-spacing:.16em;color:var(--amber-bright);margin-top:4px}
+.nav__links{display:flex;align-items:center;gap:4px;list-style:none;margin:0;padding:0}
+.nav__links a{color:#CBD5E1;text-decoration:none;font-weight:600;font-size:.93rem;padding:8px 11px;border-radius:8px}
+.nav__links a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.nav__cta{margin-left:8px}
+.nav__toggle{display:none;background:none;border:2px solid rgba(255,255,255,.25);color:#fff;border-radius:10px;padding:8px 10px;cursor:pointer}
+.nav__toggle svg{width:22px;height:22px}
+@media (max-width:1020px){
+  .nav__toggle{display:inline-flex}
+  .nav__menu{position:absolute;left:0;right:0;top:var(--nav-h);background:var(--ink);border-bottom:1px solid rgba(255,255,255,.1);padding:12px 20px 20px;display:none}
+  .nav__menu.is-open{display:block}
+  .nav__links{flex-direction:column;align-items:stretch}
+  .nav__links a{display:block;padding:12px}
+  .nav__cta{margin:10px 0 0;width:100%}
+}
+
+/* ---------- Hero ---------- */
+.hero{background:radial-gradient(1000px 500px at 85% -10%,rgba(2,132,199,.35),transparent 60%),radial-gradient(700px 400px at -10% 110%,rgba(245,158,11,.18),transparent 60%),var(--ink);color:#E2E8F0;padding:84px 0 0;overflow:hidden}
+.hero__grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero h1{color:#fff}
+.hero h1 em{font-style:normal;color:var(--amber-bright)}
+.hero .lead{color:#CBD5E1;font-size:1.15rem}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0 20px}
+.hero__meta{font-size:.9rem;color:#94A3B8}
+.report{background:var(--ink-2);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:22px;box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.report__head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:8px}
+.report__head strong{color:#fff}
+.report ul{list-style:none;padding:0;margin:0}
+.report li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid rgba(255,255,255,.08);font-size:.93rem}
+.report li span:last-child{color:#6EE7B7;font-weight:700;white-space:nowrap}
+.report__foot{margin-top:14px;font-size:.8rem;color:#94A3B8}
+.strip{margin-top:64px;background:rgba(255,255,255,.04);border-top:1px solid rgba(255,255,255,.08)}
+.strip__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.pillar{display:flex;gap:12px;align-items:flex-start;padding:22px 18px;border-left:1px solid rgba(255,255,255,.08)}
+.pillar:first-child{border-left:0}
+.pillar svg{width:30px;height:30px;flex:none;color:var(--amber-bright)}
+.pillar strong{display:block;color:#fff;font-size:.98rem}
+.pillar small{color:#94A3B8;font-size:.82rem}
+.strip__note{font-size:.78rem;color:#94A3B8;padding:0 0 16px}
+@media (max-width:900px){.hero__grid{grid-template-columns:1fr}.strip__grid{grid-template-columns:1fr 1fr}.pillar:nth-child(3){border-left:0}}
+@media (max-width:520px){.strip__grid{grid-template-columns:1fr}.pillar{border-left:0;border-top:1px solid rgba(255,255,255,.08)}}
+
+/* ---------- Tabs (shared) ---------- */
+.tablist{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.tab{font:inherit;font-weight:700;font-size:.95rem;padding:.75em 1.15em;border-radius:999px;border:2px solid var(--line);background:var(--white);color:var(--ink-3);cursor:pointer;transition:all .15s}
+.tab:hover{border-color:var(--ink-3)}
+.tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.tab[aria-selected="true"]::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--amber-bright);margin-right:8px;vertical-align:middle}
+.panel{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:30px}
+.panel__grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px}
+.panel h4{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:12px}
+.checks{list-style:none;padding:0;margin:0}
+.checks li{position:relative;padding-left:28px;margin-bottom:9px}
+.checks li::before{content:"";position:absolute;left:0;top:.3em;width:18px;height:18px;border-radius:50%;background:var(--emerald-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='m5 10.5 3 3 7-7' fill='none' stroke='%23047857' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.chips li{background:var(--cobalt-soft);color:#075985;font-weight:600;font-size:.88rem;padding:5px 11px;border-radius:999px}
+.benefit{border-left:3px solid var(--amber-bright);padding:2px 0 2px 12px;margin-bottom:14px}
+.benefit strong{display:block}
+.benefit span{color:var(--muted);font-size:.93rem}
+.panel__foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;border-top:1px solid var(--line);margin-top:26px;padding-top:20px}
+@media (max-width:900px){.panel__grid{grid-template-columns:1fr}}
+
+.modes{margin-top:64px}
+.mode-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.mode-cell{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px}
+.mode-cell h4{margin-bottom:6px}
+.mode-cell p{margin:0;font-size:.95rem}
+@media (max-width:900px){.mode-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.mode-grid{grid-template-columns:1fr}}
+
+/* ---------- Estimator ---------- */
+.est{display:grid;grid-template-columns:1fr 1.05fr;gap:28px;align-items:start}
+.est__controls,.est__results{border-radius:var(--radius);padding:28px}
+.est__controls{background:var(--ink-2);border:1px solid rgba(255,255,255,.1)}
+.est__results{background:var(--white);color:var(--ink);position:sticky;top:calc(var(--nav-h) + 16px)}
+.ctrl{margin-bottom:24px;border:0;padding:0}
+.ctrl__row label,.ctrl legend{display:block;font-weight:700;color:#fff;margin-bottom:10px;padding:0}
+.ctrl__row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.ctrl output{font-weight:800;color:var(--amber-bright);font-size:1.15rem;font-variant-numeric:tabular-nums}
+.ctrl small{display:block;color:#94A3B8;font-size:.82rem;margin-top:6px}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px;background:var(--ink);padding:5px;border-radius:12px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{text-align:center;padding:10px;border-radius:9px;cursor:pointer;font-weight:700;color:#CBD5E1;font-size:.93rem}
+.seg input:checked+label{background:var(--amber-bright);color:var(--ink)}
+.seg input:focus-visible+label{outline:3px solid var(--cobalt-bright);outline-offset:2px}
+input[type=range]{width:100%;accent-color:var(--amber-bright);height:28px;cursor:pointer}
+.loads{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.load{display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 12px;cursor:pointer;font-size:.9rem;color:#E2E8F0}
+.load:has(input:checked){border-color:var(--amber-bright);background:rgba(245,158,11,.1)}
+.load input{accent-color:var(--amber-bright);width:18px;height:18px;margin:2px 0 0;flex:none}
+.load em{display:block;font-style:normal;color:#94A3B8;font-size:.78rem}
+.toggle{display:flex;gap:10px;align-items:center;color:#E2E8F0;font-weight:600;cursor:pointer}
+.toggle input{width:20px;height:20px;accent-color:var(--amber-bright)}
+@media (max-width:520px){.loads{grid-template-columns:1fr}}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px}
+.kpi span{display:block;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.kpi strong{display:block;font-size:1.55rem;font-variant-numeric:tabular-nums;line-height:1.25;margin-top:2px}
+.kpi small{color:var(--muted);font-size:.82rem}
+.kpi--accent{background:var(--ink);border-color:var(--ink);color:#fff}
+.kpi--accent span,.kpi--accent small{color:#CBD5E1}
+.kpi--accent strong{color:var(--amber-bright)}
+.kpi--green{background:var(--emerald-soft);border-color:#A7F3D0}
+.kpi--green strong{color:var(--emerald)}
+.kpi--wide{grid-column:1/-1}
+.est__note{font-size:.84rem;color:var(--muted);background:var(--amber-soft);border-radius:var(--radius-sm);padding:10px 12px;margin:12px 0 18px}
+.est__warn{font-size:.88rem;color:#92400E;margin:0 0 8px}
+.attach-ok{display:none;margin-top:12px;font-size:.9rem;color:var(--emerald);font-weight:700}
+.attach-ok.is-on{display:block}
+@media (max-width:960px){.est{grid-template-columns:1fr}.est__results{position:static}}
+
+/* ---------- Process ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step;list-style:none;padding:0;margin:0}
+.step{position:relative;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;box-shadow:var(--shadow)}
+.step__num{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:12px;background:var(--ink);color:var(--amber-bright);font-weight:800;font-size:1.1rem;margin-bottom:14px}
+.step p{color:var(--muted);font-size:.95rem}
+.step ul{margin:0;padding-left:1.1em;font-size:.92rem;color:var(--ink-3)}
+.step:not(:last-child)::after{content:"";position:absolute;top:48px;right:-21px;width:22px;height:2px;background:var(--amber-bright)}
+@media (max-width:960px){.steps{grid-template-columns:1fr 1fr}.step::after{display:none}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}}
+
+/* ---------- Compare & FAQ ---------- */
+.compare{width:100%;border-collapse:separate;border-spacing:0;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.compare th,.compare td{padding:16px 18px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.compare tr:last-child th,.compare tr:last-child td{border-bottom:0}
+.compare thead th{background:var(--ink);color:#fff;font-size:.95rem}
+.compare thead th:nth-child(2){background:var(--emerald)}
+.compare thead th:nth-child(3){background:#7F1D1D}
+.compare tbody th{width:22%;font-size:.95rem}
+.compare td{font-size:.94rem}
+.yes,.no{display:flex;gap:10px}
+.yes::before,.no::before{flex:none;font-weight:800;width:22px;height:22px;border-radius:50%;display:inline-grid;place-items:center;font-size:.8rem;margin-top:1px}
+.yes::before{content:"✓";background:var(--emerald-soft);color:var(--emerald)}
+.no::before{content:"✕";background:var(--danger-soft);color:var(--danger)}
+@media (max-width:760px){
+  .compare thead{display:none}
+  .compare,.compare tbody,.compare tr,.compare th,.compare td{display:block;width:100%}
+  .compare tr{border-bottom:1px solid var(--line)}
+  .compare tbody th{background:var(--surface);width:100%}
+  .compare td{border-bottom:0}
+  .compare td::before{content:attr(data-label);display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:4px}
+}
+.standards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:40px 0 70px}
+.std{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+.std b{display:inline-block;background:var(--cobalt-soft);color:#075985;font-size:.8rem;padding:3px 9px;border-radius:6px;margin-bottom:10px}
+.std p{color:var(--muted);font-size:.94rem;margin:0}
+@media (max-width:860px){.standards{grid-template-columns:1fr}}
+.faq{max-width:860px}
+.faq details{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-sm);margin-bottom:10px}
+.faq summary{list-style:none;cursor:pointer;padding:18px 52px 18px 20px;font-weight:700;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:50%;background:var(--surface);display:grid;place-items:center;font-size:1.2rem;color:var(--amber)}
+.faq details[open] summary::after{content:"–"}
+.faq details[open]{border-color:var(--amber-bright)}
+.faq .ans{padding:0 20px 18px;color:var(--ink-3)}
+.faq .ans p:last-child{margin:0}
+
+/* ---------- Form ---------- */
+.quote{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
+.quote__aside ul{padding:0;list-style:none}
+.quote__aside li{display:flex;gap:12px;margin-bottom:16px;color:#CBD5E1}
+.quote__aside li svg{width:22px;height:22px;flex:none;color:var(--amber-bright);margin-top:2px}
+.quote__aside strong{color:#fff}
+.card{background:var(--white);color:var(--ink);border-radius:var(--radius);padding:30px;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field--full{grid-column:1/-1}
+.field label,.field legend{font-weight:700;font-size:.92rem;padding:0}
+.field fieldset{border:0;padding:0;margin:0}
+.req{color:var(--danger)}
+.field input[type=text],.field input[type=tel],.field input[type=email],.field input[type=date],.field select,.field textarea{font:inherit;font-size:1rem;padding:.7em .8em;border:1.5px solid #CBD5E1;border-radius:var(--radius-sm);background:#fff;color:var(--ink);width:100%}
+.field textarea{min-height:120px;resize:vertical}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline:3px solid var(--cobalt-bright);outline-offset:1px;border-color:var(--cobalt-bright)}
+.field [aria-invalid="true"]{border-color:var(--danger);background:#FFF7F7}
+.hint{font-size:.82rem;color:var(--muted)}
+.err{font-size:.84rem;color:var(--danger);font-weight:600;min-height:0;margin:0}
+.err:empty{display:none}
+.radios{display:flex;flex-wrap:wrap;gap:8px}
+.radios label{display:flex;gap:8px;align-items:center;border:1.5px solid #CBD5E1;border-radius:999px;padding:7px 14px;cursor:pointer;font-weight:600;font-size:.92rem}
+.radios label:has(input:checked){border-color:var(--cobalt);background:var(--cobalt-soft);color:#075985}
+.radios input{accent-color:var(--cobalt);margin:0}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;color:var(--ink-3)}
+.consent input{width:18px;height:18px;margin-top:3px;accent-color:var(--cobalt);flex:none}
+.form-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin-top:22px}
+.form-alert{display:none;background:var(--danger-soft);color:var(--danger);border-radius:var(--radius-sm);padding:12px 14px;font-weight:600;margin-bottom:18px}
+.form-alert.is-on{display:block}
+.attached-banner{display:none;background:var(--emerald-soft);color:var(--emerald);border-radius:var(--radius-sm);padding:10px 14px;font-weight:600;font-size:.92rem;margin-bottom:18px}
+.attached-banner.is-on{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.attached-banner button{font:inherit;font-size:.85rem;background:none;border:0;color:var(--emerald);text-decoration:underline;cursor:pointer}
+.confirm{text-align:left}
+.confirm__icon{width:56px;height:56px;border-radius:50%;background:var(--emerald-soft);display:grid;place-items:center;margin-bottom:14px}
+.confirm__icon svg{width:30px;height:30px;color:var(--emerald)}
+.ref{display:inline-block;font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:800;font-size:1.25rem;background:var(--ink);color:var(--amber-bright);padding:6px 14px;border-radius:8px;letter-spacing:.06em;margin:4px 0 16px}
+.summary{display:grid;grid-template-columns:max-content 1fr;gap:8px 18px;margin:0 0 18px;font-size:.94rem;border-top:1px solid var(--line);padding-top:16px}
+.summary dt{font-weight:700;color:var(--muted)}
+.summary dd{margin:0;white-space:pre-wrap;word-break:break-word}
+.next{background:var(--surface);border-radius:var(--radius-sm);padding:14px 16px;font-size:.93rem;margin-bottom:20px}
+.next ol{margin:6px 0 0;padding-left:1.2em}
+@media (max-width:900px){.quote{grid-template-columns:1fr}}
+@media (max-width:600px){.form-grid{grid-template-columns:1fr}.summary{grid-template-columns:1fr}.summary dt{margin-top:6px}.card,.panel,.est__controls,.est__results{padding:22px}}
+
+/* ---------- Footer ---------- */
+.footer{background:#0B1120;color:#94A3B8;padding:60px 0 28px;font-size:.93rem}
+.footer__grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:32px}
+.footer h4{color:#fff;font-size:.95rem;margin-bottom:12px}
+.footer ul{list-style:none;padding:0;margin:0}
+.footer li{margin-bottom:8px}
+.footer a{color:#CBD5E1;text-decoration:none}
+.footer a:hover{color:var(--amber-bright);text-decoration:underline}
+.footer .brand{margin-bottom:14px}
+.notice{margin-top:40px;border:1px dashed rgba(245,158,11,.5);border-radius:var(--radius-sm);padding:14px 16px;color:#FCD34D;font-size:.86rem}
+.copy{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08);display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;font-size:.85rem}
+@media (max-width:860px){.footer__grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.footer__grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Reusable SVG symbols -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- GAV emblem: hexagon (structure/standards) + split-phase bolt (power) + circuit nodes -->
+    <symbol id="gav-logo" viewBox="0 0 64 64">
+      <path d="M32 3 57 17.5v29L32 61 7 46.5v-29Z" fill="#1E293B" stroke="#F59E0B" stroke-width="3.5" stroke-linejoin="round"/>
+      <path d="M32 11.5 49.6 21.7v20.6L32 52.5 14.4 42.3V21.7Z" fill="none" stroke="#0284C7" stroke-width="1.6" opacity=".9"/>
+      <path d="M36.5 14 21 35.5h10.2L27.5 50 43 28.5H32.8Z" fill="#F59E0B"/>
+      <circle cx="14.4" cy="21.7" r="2.4" fill="#0284C7"/>
+      <circle cx="49.6" cy="42.3" r="2.4" fill="#0284C7"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5 4 5.5v6c0 5 3.4 9 8 10.5 4.6-1.5 8-5.5 8-10.5v-6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m8.5 12 2.5 2.5 4.5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2.5h8l4.5 4.5v14.5H6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 2.5V7h4.5M9 12h6M9 15.5h6M9 19h3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><path d="M3.5 21.5h17M5.5 21.5V8l6-4.5 6 4.5v13.5M9 11h1.5M13.5 11H15M9 14.5h1.5M13.5 14.5H15M10.5 21.5v-3.5h3v3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 0 0 5 5L21 13l-1 1-2.2-.6-7.7 7.7a2.1 2.1 0 0 1-3-3l7.7-7.7L14.2 8l1-1Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M3 3l4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21.5s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12Z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13.5 2.5 4.5 14h6.5l-1 7.5 9-11.5h-6.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<!-- ======================= NAVIGATION ======================= -->
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="#top" aria-label="GAV Electrical (Pty) Ltd – back to top">
+      <svg aria-hidden="true"><use href="#gav-logo"/></svg>
+      <span class="brand__name">GAV ELECTRICAL<span>(PTY) LTD</span></span>
+    </a>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <nav class="nav__menu" id="nav-menu" aria-label="Main">
+      <ul class="nav__links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#estimator">Power &amp; Cost Estimator</a></li>
+        <li><a href="#process">Our Process</a></li>
+        <li><a href="#compliance">Compliance &amp; Standards</a></li>
+        <li><a href="#quote">Book Callout / Quote</a></li>
+        <li><a class="btn btn--primary btn--sm nav__cta" href="#quote">Request Callout / Quote</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<!-- ======================= HERO ======================= -->
+<section class="hero" id="top" aria-labelledby="hero-title">
+  <div class="wrap hero__grid">
+    <div>
+      <span class="eyebrow">Quality is our concern</span>
+      <h1 id="hero-title">Safe, compliant electrical work. <em>Power that stays on</em> when it matters.</h1>
+      <p class="lead">GAV Electrical (Pty) Ltd delivers SANS 10142-1 aligned installations, fault-finding, DB upgrades and backup power / solar integration for homes, estates, businesses and light industry across Gauteng – with itemised quotes, tested workmanship and a Certificate of Compliance where it’s required.</p>
+      <div class="hero__ctas">
+        <a class="btn btn--primary" href="#estimator">
+          <svg width="20" height="20" aria-hidden="true"><use href="#i-bolt"/></svg>
+          Estimate Power &amp; Backup Needs</a>
+        <a class="btn btn--ghost" href="#services">Explore Electrical Services</a>
+      </div>
+      <p class="hero__meta">Based in Diepsloot, Johannesburg · Serving Johannesburg North, Midrand, Roodepoort &amp; the West Rand and greater Gauteng <span class="demo-tag">Demo</span></p>
+    </div>
+    <aside class="report" aria-label="Illustrative test and inspection report">
+      <div class="report__head">
+        <strong>Site test &amp; inspection</strong>
+        <span class="demo-tag">Illustrative</span>
+      </div>
+      <ul>
+        <li><span>Earth continuity &amp; resistance</span><span>Pass</span></li>
+        <li><span>Insulation resistance (all circuits)</span><span>Pass</span></li>
+        <li><span>Earth leakage trip time (≤ 30 mA)</span><span>Pass · 22 ms</span></li>
+        <li><span>Surge protection (Type 2 SPD) fitted</span><span>Yes</span></li>
+        <li><span>DB labelled &amp; circuit schedule</span><span>Done</span></li>
+        <li><span>Certificate of Compliance</span><span>Issued</span></li>
+      </ul>
+      <p class="report__foot">Example of the test results GAV documents on every compliance job. Values shown are sample data.</p>
+    </aside>
+  </div>
+
+  <div class="strip">
+    <div class="wrap">
+      <div class="strip__grid">
+        <div class="pillar"><svg aria-hidden="true"><use href="#i-shield"/></svg><div><strong>SANS 10142-1 Aligned</strong><small>Wiring code discipline on every job</small></div></div>
+        <div class="pillar"><svg aria-hidden="true"><use href="#i-doc"/></svg><div><strong>CoC &amp; Inspection Ready</strong><small>Tested, documented, signed off</small></div></div>
+        <div class="pillar"><svg aria-hidden="true"><use href="#i-building"/></svg><div><strong>Residential, Commercial &amp; Industrial</strong><small>Single- and three-phase work</small></div></div>
+        <div class="pillar"><svg aria-hidden="true"><use href="#i-wrench"/></svg><div><strong>Preventative Maintenance</strong><small>Scheduled inspections &amp; care</small></div></div>
+      </div>
+      <!-- DEMO: confirm registration numbers (e.g. DoEL Registered Person / ECA(SA)) before going live. -->
+      <p class="strip__note">Pillars describe GAV’s working standard. Demo prototype – registration and accreditation details to be confirmed before launch.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SERVICES ======================= -->
+<section class="section" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Services &amp; sectors</span>
+      <h2 id="services-title">Electrical work scoped for your property</h2>
+      <p class="lead">Pick your sector to see typical scope, the properties we work on, and what you get out of it.</p>
+    </div>
+
+    <div class="tablist" role="tablist" aria-label="Service sectors" data-tabs>
+      <button class="tab" role="tab" id="tab-res" aria-controls="panel-res" aria-selected="true">Residential &amp; Estates</button>
+      <button class="tab" role="tab" id="tab-com" aria-controls="panel-com" aria-selected="false" tabindex="-1">Commercial &amp; Retail</button>
+      <button class="tab" role="tab" id="tab-ind" aria-controls="panel-ind" aria-selected="false" tabindex="-1">Industrial &amp; Backup / Solar</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-res" aria-labelledby="tab-res" tabindex="0">
+      <div class="panel__grid">
+        <div>
+          <h4>Typical scope of work</h4>
+          <ul class="checks">
+            <li>DB board upgrades &amp; replacements (earth leakage, correctly rated breakers)</li>
+            <li>Fault-finding: tripping, burning smells, dead plugs, intermittent power</li>
+            <li>CoC inspections &amp; remedial work for property transfers</li>
+            <li>Surge arrestors &amp; earthing / bonding checks</li>
+            <li>Inverter changeover &amp; essential-load DB separation</li>
+            <li>Lighting, plug, stove &amp; geyser circuits; gate motor &amp; CCTV supplies</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Target properties</h4>
+          <ul class="chips">
+            <li>Freestanding homes</li><li>Townhouses</li><li>Security estates</li><li>Sectional title complexes</li><li>Body corporates &amp; HOAs</li><li>Landlords &amp; agents</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Key benefits</h4>
+          <div class="benefit"><strong>Transfer without delays</strong><span>CoC-ready installations so sales and rentals don’t stall.</span></div>
+          <div class="benefit"><strong>Fewer nuisance trips</strong><span>Faults traced to the root, not just reset.</span></div>
+          <div class="benefit"><strong>Essentials stay on</strong><span>Backup wired to the loads that actually matter.</span></div>
+        </div>
+      </div>
+      <div class="panel__foot"><span>Need an inspection or a fault traced?</span><a class="btn btn--blue btn--sm" href="#quote" data-service="fault">Book a residential callout</a></div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-com" aria-labelledby="tab-com" tabindex="0" hidden>
+      <div class="panel__grid">
+        <div>
+          <h4>Typical scope of work</h4>
+          <ul class="checks">
+            <li>Office, shop &amp; restaurant fit-out wiring</li>
+            <li>Three-phase distribution, sub-DBs &amp; phase balancing</li>
+            <li>Emergency &amp; exit lighting, signage and HVAC supplies</li>
+            <li>Kitchen, refrigeration &amp; dedicated equipment circuits</li>
+            <li>Surge protection for IT, POS &amp; network equipment</li>
+            <li>CoC for lease handovers &amp; tenant installations</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Target properties</h4>
+          <ul class="chips">
+            <li>Offices</li><li>Retail &amp; shopping centres</li><li>Restaurants</li><li>Clinics &amp; practices</li><li>Schools &amp; crèches</li><li>Property managers</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Key benefits</h4>
+          <div class="benefit"><strong>Minimal trading disruption</strong><span>After-hours and weekend work scheduled around you.</span></div>
+          <div class="benefit"><strong>Balanced, safer loads</strong><span>Phases balanced to reduce overheating and trips.</span></div>
+          <div class="benefit"><strong>Audit-friendly records</strong><span>Labelled boards, circuit schedules and test sheets.</span></div>
+        </div>
+      </div>
+      <div class="panel__foot"><span>Fitting out or expanding a site?</span><a class="btn btn--blue btn--sm" href="#quote" data-service="commercial">Request a commercial quote</a></div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-ind" aria-labelledby="tab-ind" tabindex="0" hidden>
+      <div class="panel__grid">
+        <div>
+          <h4>Typical scope of work</h4>
+          <ul class="checks">
+            <li>Three-phase motor circuits, MCC supplies &amp; cable tray runs</li>
+            <li>Load logging, power-quality checks &amp; phase balancing</li>
+            <li>Generator integration with automatic transfer switching (ATS)</li>
+            <li>Hybrid inverter &amp; battery installs with critical-load separation</li>
+            <li>Solar PV tie-in (SANS 10142-1-2) &amp; SSEG registration support</li>
+            <li>Earthing, bonding &amp; lightning / surge protection</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Target properties</h4>
+          <ul class="chips">
+            <li>Workshops</li><li>Light manufacturing</li><li>Warehouses</li><li>Cold storage</li><li>Farms &amp; smallholdings</li><li>Homes adding backup</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Key benefits</h4>
+          <div class="benefit"><strong>Continuity through outages</strong><span>Critical loads ride through grid failures and load reduction.</span></div>
+          <div class="benefit"><strong>Protected equipment</strong><span>Surge and voltage-spike protection for motors and electronics.</span></div>
+          <div class="benefit"><strong>Right-sized systems</strong><span>Sized from real load data, not guesswork.</span></div>
+        </div>
+      </div>
+      <div class="panel__foot"><span>Not sure what size backup you need?</span><a class="btn btn--primary btn--sm" href="#estimator">Try the estimator</a></div>
+    </div>
+
+    <!-- Engagement mode toggle -->
+    <div class="modes">
+      <div class="section-head">
+        <span class="eyebrow">How engagements work</span>
+        <h3 style="font-size:1.5rem">Compare engagement types</h3>
+      </div>
+      <div class="tablist" role="tablist" aria-label="Engagement modes" data-tabs>
+        <button class="tab" role="tab" id="mtab-call" aria-controls="mode-call" aria-selected="true">Standard Callout / Repair</button>
+        <button class="tab" role="tab" id="mtab-proj" aria-controls="mode-proj" aria-selected="false" tabindex="-1">Project / Installation Scope</button>
+        <button class="tab" role="tab" id="mtab-maint" aria-controls="mode-maint" aria-selected="false" tabindex="-1">Scheduled Maintenance Contract</button>
+      </div>
+      <!-- DEMO: replace turnaround and pricing structure text with GAV's actual terms. -->
+      <div class="panel" role="tabpanel" id="mode-call" aria-labelledby="mtab-call" tabindex="0">
+        <div class="mode-grid">
+          <div class="mode-cell"><h4>Best for</h4><p>Tripping, no power, burning smells, failed plugs or lights, storm damage.</p></div>
+          <div class="mode-cell"><h4>How it’s priced</h4><p>Fixed callout fee incl. first hour, then labour + materials. Quote first for anything major.</p></div>
+          <div class="mode-cell"><h4>Typical timing</h4><p>Same or next working day; emergencies prioritised <span class="demo-tag">Demo</span></p></div>
+          <div class="mode-cell"><h4>You receive</h4><p>Fault diagnosis, safe repair, test results and advice on follow-up work.</p></div>
+        </div>
+      </div>
+      <div class="panel" role="tabpanel" id="mode-proj" aria-labelledby="mtab-proj" tabindex="0" hidden>
+        <div class="mode-grid">
+          <div class="mode-cell"><h4>Best for</h4><p>DB upgrades, renovations, fit-outs, inverter / solar installs, three-phase work.</p></div>
+          <div class="mode-cell"><h4>How it’s priced</h4><p>Itemised fixed quote after site assessment; deposit and milestone payments.</p></div>
+          <div class="mode-cell"><h4>Typical timing</h4><p>1 day to several weeks, scheduled against an agreed programme.</p></div>
+          <div class="mode-cell"><h4>You receive</h4><p>Specified materials, tested installation, CoC where required and handover pack.</p></div>
+        </div>
+      </div>
+      <div class="panel" role="tabpanel" id="mode-maint" aria-labelledby="mtab-maint" tabindex="0" hidden>
+        <div class="mode-grid">
+          <div class="mode-cell"><h4>Best for</h4><p>Estates, complexes, retail, offices and sites where downtime is costly.</p></div>
+          <div class="mode-cell"><h4>How it’s priced</h4><p>Fixed monthly or quarterly fee by site size; repairs at agreed contract rates.</p></div>
+          <div class="mode-cell"><h4>Typical timing</h4><p>Planned visits on a set schedule, plus priority response for faults.</p></div>
+          <div class="mode-cell"><h4>You receive</h4><p>DB inspections, earth leakage tests, backup checks, logbook and risk report.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= ESTIMATOR ======================= -->
+<section class="section section--dark" id="estimator" aria-labelledby="est-title">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Interactive estimator</span>
+      <h2 id="est-title">Electrical load, backup &amp; solar estimator</h2>
+      <p class="lead">Get a rough, instant picture of your energy use, the backup system size you’d need, and possible savings. Then attach it to a quote request so we arrive prepared.</p>
+    </div>
+
+    <div class="est">
+      <form class="est__controls" id="est-form" aria-label="Estimator inputs" onsubmit="return false">
+        <fieldset class="ctrl">
+          <legend>Property type</legend>
+          <div class="seg">
+            <input type="radio" name="ptype" id="pt-res" value="residential" checked><label for="pt-res">Residential</label>
+            <input type="radio" name="ptype" id="pt-com" value="commercial"><label for="pt-com">Commercial / Industrial</label>
+          </div>
+        </fieldset>
+
+        <div class="ctrl">
+          <div class="ctrl__row"><label for="spend">Monthly electricity spend</label><output id="spend-out" for="spend">R 2 500</output></div>
+          <input type="range" id="spend" min="300" max="15000" step="100" value="2500">
+          <small id="tariff-note">Assumes ≈ R3.45/kWh blended residential tariff.</small>
+        </div>
+
+        <fieldset class="ctrl">
+          <legend>Key appliances / critical loads to keep running</legend>
+          <div class="loads" id="loads"></div>
+        </fieldset>
+
+        <div class="ctrl">
+          <div class="ctrl__row"><label for="hours">Backup autonomy target</label><output id="hours-out" for="hours">4 hours</output></div>
+          <input type="range" id="hours" min="1" max="12" step="1" value="4">
+          <small>How long critical loads should run on battery alone during an outage.</small>
+        </div>
+
+        <div class="ctrl" style="margin-bottom:0">
+          <label class="toggle"><input type="checkbox" id="solar" checked> Include solar PV rough guide</label>
+        </div>
+      </form>
+
+      <div class="est__results">
+        <h3 style="margin-bottom:0">Your estimate</h3>
+        <div class="kpis">
+          <div class="kpi"><span>Daily energy demand</span><strong id="r-daily">–</strong><small>From spend ÷ tariff</small></div>
+          <div class="kpi"><span>Peak load estimate</span><strong id="r-peak">–</strong><small>Whole property, diversified</small></div>
+          <div class="kpi kpi--accent"><span>Suggested inverter</span><strong id="r-inv">–</strong><small id="r-crit">Critical load –</small></div>
+          <div class="kpi kpi--accent"><span>Battery storage</span><strong id="r-batt">–</strong><small id="r-batt-note">–</small></div>
+          <div class="kpi kpi--wide" id="r-solar-wrap"><span>Solar PV rough guide</span><strong id="r-solar">–</strong><small id="r-solar-note">–</small></div>
+          <div class="kpi"><span>Current monthly cost</span><strong id="r-cost">–</strong><small id="r-cost-note">–</small></div>
+          <div class="kpi kpi--green"><span>Potential savings</span><strong id="r-save">–</strong><small id="r-save-note">per month</small></div>
+        </div>
+        <p class="est__warn" id="r-warn" hidden></p>
+        <p class="est__note"><strong>Indicative only.</strong> Real sizing needs an on-site load assessment, DB inspection and (for PV) a roof / shading check. Not a quotation.</p>
+        <button type="button" class="btn btn--blue" id="attach-btn" style="width:100%">Attach Estimate to Quote Request</button>
+        <p class="attach-ok" id="attach-ok" role="status">✓ Estimate attached to the quote form below.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PROCESS ======================= -->
+<section class="section" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Our process</span>
+      <h2 id="process-title">From first call to signed-off handover</h2>
+      <p class="lead">The same four steps on every job, whether it’s a single fault or a full backup-power installation.</p>
+    </div>
+    <ol class="steps">
+      <li class="step">
+        <span class="step__num" aria-hidden="true">1</span>
+        <h3>Assessment &amp; Diagnostics</h3>
+        <p>We start with the facts, not assumptions.</p>
+        <ul><li>On-site inspection of DB, wiring &amp; earthing</li><li>Load &amp; fault testing with calibrated instruments</li><li>Clear written scope of what’s needed</li></ul>
+      </li>
+      <li class="step">
+        <span class="step__num" aria-hidden="true">2</span>
+        <h3>Transparent Quoting &amp; Specifying</h3>
+        <p>You see exactly what you’re paying for.</p>
+        <ul><li>Itemised labour &amp; materials</li><li>SANS-compliant, quality-marked components</li><li>Agreed timelines and milestones</li></ul>
+      </li>
+      <li class="step">
+        <span class="step__num" aria-hidden="true">3</span>
+        <h3>Certified Installation &amp; Testing</h3>
+        <p>Neat work, tested before we leave.</p>
+        <ul><li>Tidy, labelled, code-aligned workmanship</li><li>Insulation, continuity &amp; earth leakage tests</li><li>CoC sign-off where required</li></ul>
+      </li>
+      <li class="step">
+        <span class="step__num" aria-hidden="true">4</span>
+        <h3>Handover &amp; Ongoing Support</h3>
+        <p>You know your system and who to call.</p>
+        <ul><li>Walk-through &amp; circuit schedule</li><li>Test results and documentation</li><li>Optional preventative maintenance plan</li></ul>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ======================= COMPLIANCE / WHY GAV / FAQ ======================= -->
+<section class="section section--alt" id="compliance" aria-labelledby="comp-title">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Compliance &amp; standards</span>
+      <h2 id="comp-title">Why GAV Electrical: the standard vs. the shortcut</h2>
+      <p class="lead">Cheap electrical work often costs more later: failed transfers, insurance disputes, damaged equipment or worse. Here’s the difference.</p>
+    </div>
+
+    <table class="compare">
+      <caption class="sr-only">GAV Electrical standard compared with unvetted shortcut work</caption>
+      <thead><tr><th scope="col">Area</th><th scope="col">GAV Electrical’s standard</th><th scope="col">Unvetted / shortcut work</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Compliance &amp; CoC readiness</th>
+          <td data-label="GAV standard"><span class="yes">Work done to SANS 10142-1, tested and certified where required</span></td>
+          <td data-label="Shortcut work"><span class="no">No tests, no CoC, problems surface at transfer or insurance claim</span></td></tr>
+        <tr><th scope="row">Load &amp; surge protection</th>
+          <td data-label="GAV standard"><span class="yes">Breakers sized to cable, earth leakage tested, SPDs fitted, phases balanced</span></td>
+          <td data-label="Shortcut work"><span class="no">Oversized breakers, bypassed earth leakage, no surge protection</span></td></tr>
+        <tr><th scope="row">Backup / inverter integration</th>
+          <td data-label="GAV standard"><span class="yes">Proper changeover, essential-load DB, correct earthing in backup mode</span></td>
+          <td data-label="Shortcut work"><span class="no">Inverters plugged into the main DB with unsafe back-feed risk</span></td></tr>
+        <tr><th scope="row">Labelling &amp; documentation</th>
+          <td data-label="GAV standard"><span class="yes">Labelled DB, circuit schedule, test results kept on file</span></td>
+          <td data-label="Shortcut work"><span class="no">Unmarked breakers and no record of what was done</span></td></tr>
+        <tr><th scope="row">Accountability</th>
+          <td data-label="GAV standard"><span class="yes">Registered company, written quote, workmanship stood behind</span></td>
+          <td data-label="Shortcut work"><span class="no">Cash job, no paperwork, hard to reach when something fails</span></td></tr>
+      </tbody>
+    </table>
+
+    <!-- DEMO: replace with GAV's confirmed registrations / memberships. -->
+    <div class="standards">
+      <div class="std"><b>SANS 10142-1</b><p>The South African wiring code for low-voltage installations. Our baseline for every circuit, DB and earthing arrangement.</p></div>
+      <div class="std"><b>SANS 10142-1-2</b><p>Requirements for embedded generation: the standard that applies to inverter, battery and solar PV installations.</p></div>
+      <div class="std"><b>Electrical Installation Regulations</b><p>Under the OHS Act, a CoC must be issued by a registered person for new work and alterations.</p></div>
+    </div>
+
+    <div class="section-head" style="margin-bottom:24px">
+      <span class="eyebrow">FAQ</span>
+      <h2>Practical answers</h2>
+    </div>
+    <div class="faq">
+      <details name="faq" open>
+        <summary>When do I need a Certificate of Compliance (CoC)?</summary>
+        <div class="ans"><p>A CoC is required for every electrical installation and must be updated whenever circuits are added or altered. It’s also needed when you sell a property. Conveyancers commonly ask for a CoC issued within the last two years, or one covering any changes made since. We inspect, fix any non-compliances, test and issue the certificate.</p></div>
+      </details>
+      <details name="faq">
+        <summary>Do I need fault-finding or a full rewire?</summary>
+        <div class="ans"><p>Most problems (tripping, dead circuits, flickering) are isolated faults that can be traced and repaired. A rewire is usually only recommended when insulation tests fail across many circuits, wiring is very old or unsafe, or the installation can’t support current loads. We test first and show you the results before recommending either.</p></div>
+      </details>
+      <details name="faq">
+        <summary>Will an inverter or battery work with my existing DB and wiring?</summary>
+        <div class="ans"><p>Usually yes, but it needs to be integrated properly: a changeover or bypass switch, a separate essential-load DB, correct earthing when running off-grid, and surge protection. Grid-tied or hybrid systems with solar must comply with SANS 10142-1-2 and be registered with your municipality or Eskom where required. We check compatibility during the assessment.</p></div>
+      </details>
+      <details name="faq">
+        <summary>What are typical turnaround times?</summary>
+        <div class="ans"><p>Callouts are typically attended the same or next working day, with emergencies such as no power or burning smells prioritised. CoC inspections can usually be booked within a few days. Installation projects are scheduled once the quote is approved and materials are confirmed. <span class="demo-tag">Demo timings</span></p></div>
+      </details>
+      <details name="faq">
+        <summary>Can you work around business hours or estate access rules?</summary>
+        <div class="ans"><p>Yes. Commercial work can be scheduled early, after hours or on weekends to avoid disrupting trading. For estates and complexes we work with body corporate and security access requirements. Residential bookings run Monday to Saturday; we’re closed on Sundays except for arranged emergencies.</p></div>
+      </details>
+      <details name="faq">
+        <summary>Is the online estimate a quotation?</summary>
+        <div class="ans"><p>No. The estimator gives an indicative starting point based on your bill and chosen loads. A firm, itemised quote follows a site assessment, because DB condition, cable runs, roof space and actual load profiles all affect the final design.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= QUOTE / CALLOUT FORM ======================= -->
+<section class="section section--dark" id="quote" aria-labelledby="quote-title">
+  <div class="wrap quote">
+    <div class="quote__aside">
+      <span class="eyebrow">Book a callout or quote</span>
+      <h2 id="quote-title">Tell us what you need</h2>
+      <p class="lead">Send the details and we’ll confirm timing, the likely scope and any callout fee before anyone is dispatched.</p>
+      <ul>
+        <li><svg aria-hidden="true"><use href="#i-clock"/></svg><span><strong>Fast response.</strong> We aim to reply within one working hour during business hours. <span class="demo-tag">Demo</span></span></li>
+        <li><svg aria-hidden="true"><use href="#i-doc"/></svg><span><strong>No surprises.</strong> Itemised quote before any major work starts.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-pin"/></svg><span><strong>Gauteng coverage.</strong> Johannesburg North, Midrand, Roodepoort, West Rand &amp; surrounds.</span></li>
+        <li><svg aria-hidden="true"><use href="#i-shield"/></svg><span><strong>Safety first.</strong> Burning smell or sparking? Switch off the main breaker and choose “Emergency” below.</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <!--
+        BACKEND HOOK: this form is client-side only. To go live, POST the payload built in
+        submitQuote() to your endpoint (e.g. Formspree, a serverless function or CRM webhook)
+        and only show the confirmation after a successful response.
+      -->
+      <form id="quote-form" novalidate>
+        <div class="form-alert" id="form-alert" role="alert" tabindex="-1"></div>
+        <div class="attached-banner" id="attached-banner" role="status"><span>✓ Estimator summary attached to scope notes</span><button type="button" id="detach-btn">Remove</button></div>
+
+        <div class="form-grid">
+          <div class="field field--full">
+            <label for="f-name">Full name / Company <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="f-name" name="name" autocomplete="name" required aria-describedby="e-name">
+            <p class="err" id="e-name"></p>
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone <span class="req" aria-hidden="true">*</span></label>
+            <input type="tel" id="f-phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="082 123 4567" required aria-describedby="h-phone e-phone">
+            <span class="hint" id="h-phone">SA mobile or landline</span>
+            <p class="err" id="e-phone"></p>
+          </div>
+          <div class="field">
+            <label for="f-email">Email <span class="req" aria-hidden="true">*</span></label>
+            <input type="email" id="f-email" name="email" autocomplete="email" placeholder="you@example.co.za" required aria-describedby="e-email">
+            <p class="err" id="e-email"></p>
+          </div>
+          <div class="field">
+            <label for="f-suburb">Suburb / City <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="f-suburb" name="suburb" autocomplete="address-level2" placeholder="e.g. Fourways, Johannesburg" required aria-describedby="e-suburb">
+            <p class="err" id="e-suburb"></p>
+          </div>
+          <div class="field">
+            <label for="f-province">Province <span class="req" aria-hidden="true">*</span></label>
+            <!-- SERVICE AREAS: limit this list (or add a suburb check) once GAV confirms its coverage. -->
+            <select id="f-province" name="province" required aria-describedby="e-province">
+              <option value="Gauteng" selected>Gauteng</option>
+              <option>North West</option><option>Mpumalanga</option><option>Limpopo</option><option>Free State</option>
+              <option>KwaZulu-Natal</option><option>Eastern Cape</option><option>Western Cape</option><option>Northern Cape</option>
+            </select>
+            <p class="err" id="e-province"></p>
+          </div>
+          <div class="field">
+            <label for="f-service">Service category <span class="req" aria-hidden="true">*</span></label>
+            <select id="f-service" name="service" required aria-describedby="e-service">
+              <option value="">Select a service…</option>
+              <option value="fault">Fault-finding / tripping / no power</option>
+              <option value="db">DB board upgrade / replacement</option>
+              <option value="coc">CoC inspection &amp; certificate</option>
+              <option value="install">New installation / renovation wiring</option>
+              <option value="commercial">Commercial / retail electrical</option>
+              <option value="industrial">Industrial / three-phase work</option>
+              <option value="backup">Backup power (inverter / generator)</option>
+              <option value="solar">Solar PV integration</option>
+              <option value="surge">Surge &amp; earthing protection</option>
+              <option value="maintenance">Scheduled maintenance contract</option>
+              <option value="other">Other</option>
+            </select>
+            <p class="err" id="e-service"></p>
+          </div>
+          <div class="field">
+            <label for="f-urgency">Urgency / preferred timing <span class="req" aria-hidden="true">*</span></label>
+            <select id="f-urgency" name="urgency" required aria-describedby="e-urgency">
+              <option value="">Select timing…</option>
+              <option>Emergency – today</option>
+              <option>Within 48 hours</option>
+              <option>This week</option>
+              <option>Flexible / planning ahead</option>
+            </select>
+            <p class="err" id="e-urgency"></p>
+          </div>
+          <div class="field field--full">
+            <label for="f-notes">Estimated spend or scope notes</label>
+            <textarea id="f-notes" name="notes" maxlength="2000" placeholder="What’s happening, what you’d like done, budget range, access notes…" aria-describedby="h-notes"></textarea>
+            <span class="hint" id="h-notes">Optional · up to 2 000 characters</span>
+          </div>
+          <div class="field field--full">
+            <fieldset aria-describedby="e-contact">
+              <legend>Preferred contact method <span class="req" aria-hidden="true">*</span></legend>
+              <div class="radios">
+                <label><input type="radio" name="contact" value="Phone call"> Phone call</label>
+                <label><input type="radio" name="contact" value="WhatsApp"> WhatsApp</label>
+                <label><input type="radio" name="contact" value="Email"> Email</label>
+              </div>
+            </fieldset>
+            <p class="err" id="e-contact"></p>
+          </div>
+          <div class="field field--full">
+            <label class="consent"><input type="checkbox" id="f-consent" name="consent" aria-describedby="e-consent"> I agree that GAV Electrical may use these details to respond to my request, in line with POPIA. <span class="req" aria-hidden="true">*</span></label>
+            <p class="err" id="e-consent"></p>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn--light btn--sm" id="sample-btn">Fill demo sample data</button>
+          <button type="submit" class="btn btn--primary">Submit Request</button>
+        </div>
+      </form>
+
+      <div class="confirm" id="confirm" role="region" hidden tabindex="-1" aria-labelledby="confirm-title">
+        <div class="confirm__icon"><svg aria-hidden="true"><use href="#i-check"/></svg></div>
+        <h3 id="confirm-title">Request received. Thank you!</h3>
+        <p style="margin:0">Your reference number:</p>
+        <span class="ref" id="c-ref">GAV-000000-0000</span>
+        <dl class="summary" id="c-summary"></dl>
+        <div class="next"><strong>What happens next</strong>
+          <ol><li>A GAV team member reviews your request.</li><li>We contact you via your preferred method to confirm scope and timing.</li><li>An assessment or callout is booked; you receive an itemised quote before major work.</li></ol>
+        </div>
+        <p class="hint" style="margin-bottom:16px">Demo prototype: no data has been sent or stored.</p>
+        <div class="form-actions" style="justify-content:flex-start">
+          <button type="button" class="btn btn--light" id="edit-btn">Edit request</button>
+          <button type="button" class="btn btn--blue" id="new-btn">Submit another request</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a class="brand" href="#top" aria-label="GAV Electrical (Pty) Ltd – back to top">
+          <svg aria-hidden="true"><use href="#gav-logo"/></svg>
+          <span class="brand__name">GAV ELECTRICAL<span>(PTY) LTD</span></span>
+        </a>
+        <p>Electrical engineering and power solutions contractor for residential, commercial and light industrial clients across Gauteng. Safe, compliant, documented work. Quality is our concern.</p>
+      </div>
+      <div>
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#estimator">Power &amp; Cost Estimator</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#compliance">Compliance &amp; Standards</a></li>
+          <li><a href="#quote">Book Callout / Quote</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#quote" data-service="fault">Fault-finding</a></li>
+          <li><a href="#quote" data-service="db">DB upgrades</a></li>
+          <li><a href="#quote" data-service="coc">CoC inspections</a></li>
+          <li><a href="#quote" data-service="backup">Backup &amp; inverters</a></li>
+          <li><a href="#quote" data-service="maintenance">Maintenance contracts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact <span class="demo-tag">Placeholder</span></h4>
+        <ul>
+          <li><a href="mailto:info@gavelectrical.example">info@gavelectrical.example</a></li>
+          <li><a href="tel:+27100000000">+27 (0)10 000 0000</a></li>
+          <li>Diepsloot, Johannesburg, Gauteng</li>
+          <li>Mon–Sat · Closed Sundays</li>
+        </ul>
+      </div>
+    </div>
+    <p class="notice"><strong>Demo prototype.</strong> This site is a concept for stakeholder review. Contact details, turnaround times, tariffs and estimator outputs are placeholders or illustrative only. Forms do not send data.</p>
+    <div class="copy">
+      <span>© <span id="year">2026</span> GAV Electrical (Pty) Ltd. All rights reserved.</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+"use strict";
+
+/* ============================================================
+   CONFIG – plug in real assumptions here
+   ============================================================ */
+// TARIFFS: blended R/kWh incl. VAT. Replace with current City Power / Eskom / municipal rates.
+const TARIFF = { residential: 3.45, commercial: 3.10 };
+// Spend slider ranges per property type (R / month).
+const SPEND = { residential: { min: 300, max: 15000, step: 100, def: 2500 },
+                commercial:  { min: 2000, max: 150000, step: 1000, def: 25000 } };
+// Peak-to-average ratio (whole property) and diversity on chosen critical loads.
+const PEAK_FACTOR = { residential: 4.0, commercial: 2.8 };
+const DIVERSITY   = { residential: 0.65, commercial: 0.75 };
+const DUTY = 0.6;            // average share of critical load actually drawn during an outage
+const USABLE = 0.9;          // battery depth of discharge × round-trip efficiency
+const MODULE_KWH = 5.12;     // common LiFePO4 module size
+const SUN_HOURS = 5.0;       // Gauteng peak sun hours (annual average)
+const PV_PR = 0.8;           // PV performance ratio
+const PV_OFFSET = { residential: 0.7, commercial: 0.5 }; // share of daily kWh PV aims to cover
+const SELF_USE = [0.6, 0.85];// self-consumption range for savings (no feed-in credit assumed)
+const PANEL_W = 550;
+const INVERTER_SIZES = [3, 5, 8, 10, 12, 15, 20, 30, 50, 60, 100, 150, 250]; // kVA
+
+const LOADS = {
+  residential: [
+    { id: "lights",   label: "LED lights, Wi-Fi & router", kw: 0.25, on: true },
+    { id: "fridge",   label: "Fridge / freezer",           kw: 0.3,  on: true },
+    { id: "office",   label: "TV, laptops & home office",  kw: 0.4,  on: true },
+    { id: "security", label: "Gate motor, alarm & CCTV",   kw: 0.3,  on: true },
+    { id: "pump",     label: "Borehole / pool pump",        kw: 1.1 },
+    { id: "kitchen",  label: "Microwave & kettle",          kw: 2.0, note: "short bursts" },
+    { id: "aircon",   label: "Inverter aircon (1 unit)",    kw: 1.2 },
+    { id: "geyser",   label: "Electric geyser",             kw: 3.0, note: "not advised on battery", warn: true }
+  ],
+  commercial: [
+    { id: "it",       label: "Servers, network & POS",       kw: 1.5, on: true },
+    { id: "lighting", label: "Office / shop lighting",       kw: 2.5, on: true },
+    { id: "security", label: "Access control, alarm & CCTV", kw: 0.5, on: true },
+    { id: "refrig",   label: "Cold rooms / refrigeration",   kw: 4.0 },
+    { id: "hvac",     label: "HVAC / air-conditioning",      kw: 7.5 },
+    { id: "pumps",    label: "Pumps / borehole",             kw: 2.2 },
+    { id: "machines", label: "Workshop machines / compressors", kw: 11, note: "motor start currents", warn: true }
+  ]
+};
+
+/* ============================================================
+   Pure estimate calculation (no DOM) – easy to unit test
+   ============================================================ */
+function estimate({ type, spend, loadIds, hours, solar }) {
+  const tariff = TARIFF[type];
+  const daily = spend / tariff / 30.4;
+  const peak = (daily / 24) * PEAK_FACTOR[type];
+  const chosen = LOADS[type].filter(l => loadIds.includes(l.id));
+  const critKW = chosen.reduce((s, l) => s + l.kw, 0) * DIVERSITY[type];
+  const kvaNeed = critKW * 1.25 / 0.8; // 25% headroom, 0.8 power factor
+  const kva = critKW ? (INVERTER_SIZES.find(s => s >= kvaNeed) || Math.ceil(kvaNeed / 50) * 50) : 0;
+  const batt = critKW * DUTY * hours / USABLE;
+  const modules = batt ? Math.ceil(batt / MODULE_KWH) : 0;
+  let kwp = 0, panels = 0, saveLo, saveHi;
+  if (solar) {
+    kwp = daily * PV_OFFSET[type] / (SUN_HOURS * PV_PR);
+    panels = Math.ceil(kwp * 1000 / PANEL_W);
+    const pvMonthly = kwp * SUN_HOURS * PV_PR * 30.4;
+    saveLo = pvMonthly * SELF_USE[0] * tariff;
+    saveHi = pvMonthly * SELF_USE[1] * tariff;
+  } else {
+    // Without PV: savings from load management (geyser timers, LEDs, phase balancing, TOU shifting).
+    saveLo = spend * 0.05;
+    saveHi = spend * 0.12;
+  }
+  const cap = spend * 0.85; // never promise more than most of the bill
+  return { tariff, daily, peak, critKW, kva, batt, modules, kwp, panels,
+           saveLo: Math.min(saveLo, cap), saveHi: Math.min(saveHi, cap),
+           warn: chosen.filter(l => l.warn).map(l => l.label) };
+}
+
+// Self-check: logs only on failure, so a passing run stays console-clean.
+(function selfTest() {
+  const r = estimate({ type: "residential", spend: 2500, loadIds: ["lights", "fridge", "office", "security"], hours: 4, solar: true });
+  console.assert(Math.abs(r.daily - 23.84) < 0.05, "daily kWh", r.daily);
+  console.assert(r.kva >= r.critKW * 1.25 / 0.8 && r.kva === 3, "inverter size", r.kva);
+  console.assert(r.saveLo <= r.saveHi && r.saveHi <= 2500 * 0.85, "savings range", r);
+  const none = estimate({ type: "commercial", spend: 25000, loadIds: [], hours: 4, solar: false });
+  console.assert(none.kva === 0 && none.batt === 0 && none.saveLo === 1250, "no-load case", none);
+})();
+
+/* ============================================================
+   Helpers
+   ============================================================ */
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const zar = new Intl.NumberFormat("en-ZA", { style: "currency", currency: "ZAR", maximumFractionDigits: 0 });
+const num = (n, d = 1) => n.toLocaleString("en-ZA", { maximumFractionDigits: d, minimumFractionDigits: d });
+
+/* ---------- Mobile nav ---------- */
+const navToggle = $(".nav__toggle"), navMenu = $("#nav-menu");
+function setNav(open) {
+  navMenu.classList.toggle("is-open", open);
+  navToggle.setAttribute("aria-expanded", open);
+  navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+}
+navToggle.addEventListener("click", () => setNav(!navMenu.classList.contains("is-open")));
+navMenu.addEventListener("click", e => { if (e.target.closest("a")) setNav(false); });
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && navMenu.classList.contains("is-open")) { setNav(false); navToggle.focus(); }
+});
+
+/* ---------- Tabs (WAI-ARIA pattern, shared by services + engagement modes) ---------- */
+$$("[data-tabs]").forEach(list => {
+  const tabs = $$('[role="tab"]', list);
+  const select = i => tabs.forEach((t, k) => {
+    const on = k === i;
+    t.setAttribute("aria-selected", on);
+    t.tabIndex = on ? 0 : -1;
+    document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+  });
+  tabs.forEach((t, i) => {
+    t.addEventListener("click", () => select(i));
+    t.addEventListener("keydown", e => {
+      const map = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 };
+      if (!(e.key in map)) return;
+      e.preventDefault();
+      const j = (map[e.key] + tabs.length) % tabs.length;
+      select(j); tabs[j].focus();
+    });
+  });
+});
+
+/* ============================================================
+   Estimator UI
+   ============================================================ */
+const estForm = $("#est-form"), spendEl = $("#spend"), hoursEl = $("#hours"), solarEl = $("#solar");
+let currentType = "residential", lastResult = null;
+
+function renderLoads(type) {
+  $("#loads").innerHTML = LOADS[type].map(l => `
+    <label class="load"><input type="checkbox" value="${l.id}"${l.on ? " checked" : ""}>
+      <span>${l.label}<em>≈ ${num(l.kw)} kW${l.note ? " · " + l.note : ""}</em></span></label>`).join("");
+}
+
+function setType(type) {
+  currentType = type;
+  const r = SPEND[type];
+  Object.assign(spendEl, { min: r.min, max: r.max, step: r.step, value: r.def });
+  $("#tariff-note").textContent = `Assumes ≈ R${num(TARIFF[type], 2)}/kWh blended ${type} tariff.`;
+  renderLoads(type);
+  update();
+}
+
+function update() {
+  const spend = +spendEl.value, hours = +hoursEl.value, solar = solarEl.checked;
+  const loadIds = $$("#loads input:checked").map(i => i.value);
+  const r = estimate({ type: currentType, spend, loadIds, hours, solar });
+  lastResult = { ...r, type: currentType, spend, hours, solar,
+                 loads: LOADS[currentType].filter(l => loadIds.includes(l.id)).map(l => l.label) };
+
+  $("#spend-out").textContent = zar.format(spend);
+  spendEl.setAttribute("aria-valuetext", zar.format(spend) + " per month");
+  $("#hours-out").textContent = hours + (hours === 1 ? " hour" : " hours");
+  hoursEl.setAttribute("aria-valuetext", $("#hours-out").textContent);
+
+  $("#r-daily").textContent = num(r.daily) + " kWh";
+  $("#r-peak").textContent = num(r.peak) + " kW";
+  if (r.critKW) {
+    $("#r-inv").textContent = r.kva + " kVA";
+    $("#r-crit").textContent = `Critical load ≈ ${num(r.critKW)} kW incl. headroom`;
+    $("#r-batt").textContent = num(r.batt) + " kWh";
+    $("#r-batt-note").textContent = `≈ ${r.modules} × ${num(MODULE_KWH, 2)} kWh module${r.modules > 1 ? "s" : ""} for ${hours} h`;
+  } else {
+    $("#r-inv").textContent = "–"; $("#r-crit").textContent = "Select at least one critical load";
+    $("#r-batt").textContent = "–"; $("#r-batt-note").textContent = "No critical loads selected";
+  }
+  $("#r-solar-wrap").hidden = !solar;
+  if (solar) {
+    $("#r-solar").textContent = `${num(r.kwp)} kWp`;
+    $("#r-solar-note").textContent = `≈ ${r.panels} × ${PANEL_W} W panels · ~${Math.round(r.panels * 2.6)} m² roof · aiming to cover ~${PV_OFFSET[currentType] * 100}% of daily use`;
+  }
+  $("#r-cost").textContent = zar.format(spend);
+  $("#r-cost-note").textContent = `≈ ${Math.round(r.daily * 30.4).toLocaleString("en-ZA")} kWh / month`;
+  $("#r-save").textContent = `${zar.format(r.saveLo)} – ${zar.format(r.saveHi)}`;
+  $("#r-save-note").textContent = solar ? "per month from solar self-use" : "per month from load management";
+  const warn = $("#r-warn");
+  warn.hidden = !r.warn.length;
+  warn.textContent = r.warn.length ? `⚠ ${r.warn.join(", ")}: high draw. Usually better on a timer, gas or generator than on battery backup.` : "";
+  $("#attach-ok").classList.remove("is-on");
+}
+
+estForm.addEventListener("input", e => {
+  if (e.target.name === "ptype") setType(e.target.value); else update();
+});
+
+function estimateSummary(r) {
+  const lines = [
+    "--- GAV estimator summary (indicative) ---",
+    `Property: ${r.type === "residential" ? "Residential" : "Commercial / Industrial"}`,
+    `Monthly spend: ${zar.format(r.spend)} (≈ ${num(r.daily)} kWh/day, peak ≈ ${num(r.peak)} kW)`,
+    `Critical loads: ${r.loads.length ? r.loads.join(", ") : "none selected"}`,
+    r.critKW ? `Backup: ${r.kva} kVA inverter, ≈ ${num(r.batt)} kWh battery for ${r.hours} h` : "Backup: not sized (no critical loads)"
+  ];
+  if (r.solar) lines.push(`Solar PV guide: ≈ ${num(r.kwp)} kWp (${r.panels} panels)`);
+  lines.push(`Potential savings: ${zar.format(r.saveLo)} – ${zar.format(r.saveHi)} / month`);
+  return lines.join("\n");
+}
+
+/* ============================================================
+   Quote form
+   ============================================================ */
+const form = $("#quote-form"), confirmEl = $("#confirm"), notes = $("#f-notes");
+const MARK = "--- GAV estimator summary";
+
+function stripEstimate(text) {
+  const i = text.indexOf(MARK);
+  return (i === -1 ? text : text.slice(0, i)).trimEnd();
+}
+
+$("#attach-btn").addEventListener("click", () => {
+  const base = stripEstimate(notes.value);
+  notes.value = (base ? base + "\n\n" : "") + estimateSummary(lastResult);
+  const svc = $("#f-service");
+  if (!svc.value || svc.value === "backup" || svc.value === "solar") svc.value = lastResult.solar ? "solar" : "backup";
+  $("#attached-banner").classList.add("is-on");
+  $("#attach-ok").classList.add("is-on");
+  showForm();
+  $("#quote").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  setTimeout(() => $("#f-name").focus({ preventScroll: true }), 500);
+});
+
+$("#detach-btn").addEventListener("click", () => {
+  notes.value = stripEstimate(notes.value);
+  $("#attached-banner").classList.remove("is-on");
+  notes.focus();
+});
+
+// "Book …" links elsewhere on the page pre-select a service category.
+$$("a[data-service]").forEach(a => a.addEventListener("click", () => {
+  $("#f-service").value = a.dataset.service; showForm();
+}));
+
+// Validation rules: return "" when valid, otherwise the error message.
+const RULES = {
+  name:     v => v.trim().length >= 2 ? "" : "Please enter your full name or company name.",
+  phone:    v => /^(\+27|0)[1-9]\d{8}$/.test(v.replace(/[\s()-]/g, "")) ? "" : "Enter a valid South African number, e.g. 082 123 4567 or +27 82 123 4567.",
+  email:    v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? "" : "Enter a valid email address, e.g. name@example.co.za.",
+  suburb:   v => v.trim().length >= 2 ? "" : "Please enter your suburb or city.",
+  province: v => v ? "" : "Please choose a province.",
+  service:  v => v ? "" : "Please choose a service category.",
+  urgency:  v => v ? "" : "Please choose how urgent this is.",
+  contact:  v => v ? "" : "Please choose how we should contact you.",
+  consent:  v => v ? "" : "Please confirm we may use your details to respond."
+};
+
+function fieldValue(name) {
+  if (name === "contact") return form.querySelector('input[name="contact"]:checked')?.value || "";
+  if (name === "consent") return $("#f-consent").checked;
+  return form.elements[name].value;
+}
+
+function validateField(name) {
+  const msg = RULES[name](fieldValue(name));
+  $("#e-" + name).textContent = msg;
+  const targets = name === "contact" ? $$('input[name="contact"]', form) : [form.elements[name]];
+  targets.forEach(el => el.setAttribute("aria-invalid", !!msg));
+  return msg;
+}
+
+// Re-validate fields once the user has interacted with them.
+form.addEventListener("change", e => { if (RULES[e.target.name]) validateField(e.target.name); });
+form.addEventListener("input", e => {
+  if (RULES[e.target.name] && e.target.getAttribute("aria-invalid") === "true") validateField(e.target.name);
+});
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  const errors = Object.keys(RULES).filter(validateField);
+  const alert = $("#form-alert");
+  if (errors.length) {
+    alert.textContent = `Please fix ${errors.length} field${errors.length > 1 ? "s" : ""} highlighted below.`;
+    alert.classList.add("is-on");
+    const first = errors[0] === "contact" ? form.querySelector('input[name="contact"]') : form.elements[errors[0]];
+    first.focus();
+    return;
+  }
+  alert.classList.remove("is-on");
+  submitQuote();
+});
+
+function makeRef() {
+  const d = new Date(), p = n => String(n).padStart(2, "0");
+  const rand = Array.from(crypto.getRandomValues(new Uint8Array(2)), b => b.toString(16).padStart(2, "0")).join("").toUpperCase();
+  return `GAV-${String(d.getFullYear()).slice(2)}${p(d.getMonth() + 1)}${p(d.getDate())}-${rand}`;
+}
+
+function submitQuote() {
+  const svc = $("#f-service");
+  const data = {
+    reference: makeRef(),
+    name: fieldValue("name").trim(),
+    phone: fieldValue("phone").trim(),
+    email: fieldValue("email").trim(),
+    location: `${fieldValue("suburb").trim()}, ${fieldValue("province")}`,
+    service: svc.options[svc.selectedIndex].text,
+    urgency: fieldValue("urgency"),
+    contact: fieldValue("contact"),
+    notes: notes.value.trim() || "—"
+  };
+  // BACKEND HOOK: replace this block with fetch("/api/quote", { method: "POST", body: JSON.stringify(data) })
+  // and show the confirmation only on a 2xx response; on failure keep the form and show an error.
+
+  $("#c-ref").textContent = data.reference;
+  const dl = $("#c-summary");
+  dl.replaceChildren();
+  [["Name / Company", data.name], ["Phone", data.phone], ["Email", data.email], ["Location", data.location],
+   ["Service", data.service], ["Timing", data.urgency], ["Contact via", data.contact], ["Notes", data.notes]]
+    .forEach(([k, v]) => {
+      const dt = document.createElement("dt"), dd = document.createElement("dd");
+      dt.textContent = k; dd.textContent = v; // textContent: user input is never parsed as HTML
+      dl.append(dt, dd);
+    });
+  form.hidden = true;
+  confirmEl.hidden = false;
+  confirmEl.focus();
+}
+
+function showForm() { form.hidden = false; confirmEl.hidden = true; }
+
+$("#edit-btn").addEventListener("click", () => { showForm(); $("#f-name").focus(); });
+$("#new-btn").addEventListener("click", () => {
+  form.reset();
+  $$("[aria-invalid]", form).forEach(el => el.removeAttribute("aria-invalid"));
+  $$(".err", form).forEach(el => (el.textContent = ""));
+  $("#attached-banner").classList.remove("is-on");
+  $("#form-alert").classList.remove("is-on");
+  showForm();
+  $("#f-name").focus();
+});
+
+$("#sample-btn").addEventListener("click", () => {
+  const s = {
+    name: "Sipho Ndlovu – Ndlovu Bakery (Pty) Ltd", phone: "082 555 0142", email: "sipho@ndlovubakery.example",
+    suburb: "Fourways, Johannesburg", province: "Gauteng", service: "backup", urgency: "This week"
+  };
+  Object.entries(s).forEach(([k, v]) => (form.elements[k].value = v));
+  if (!stripEstimate(notes.value)) {
+    const est = notes.value.includes(MARK) ? notes.value.slice(notes.value.indexOf(MARK)) : "";
+    notes.value = "Bakery ovens and cold room trip during outages. Want backup for POS, lighting and the cold room, plus a DB inspection. Budget approx. R120k–R180k." + (est ? "\n\n" + est : "");
+  }
+  form.querySelector('input[name="contact"][value="WhatsApp"]').checked = true;
+  $("#f-consent").checked = true;
+  Object.keys(RULES).forEach(validateField);
+  $("#form-alert").classList.remove("is-on");
+});
+
+/* ---------- Init ---------- */
+$("#year").textContent = new Date().getFullYear();
+setType("residential");
+</script>
+</body>
+</html>
